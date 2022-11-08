@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+</head>
+<body>
+    <div id="showTime"></div>
+    <button onclick="pressStart()">start</button>
+    <button onclick="pressStop()">stop</button>
+    <button onclick="pressReset()">reset</button>
+    
+    <script>
+        var showTimeDiv = document.getElementById('showTime');
+        var showTime = 0; // Antall sekunder gått
+        let timer; // Intervalet
+
+        // etter hjelp av Bjørnar endelig ferdig
+
+        function pressStart(){
+            timer = setInterval(count, 1000) // delt pressStart funksjon til to simpel funfksjoner.
+        }
+
+        function count(){
+            document.getElementById('showTime').innerHTML=showTime;
+            showTime++; 
+        }
+
+        function pressStop(){
+            clearInterval(timer);
+        }
+
+        function pressReset(){
+            showTime = 0;
+            timer = setInterval(count, 1000);
+            document.getElementById('showTime').innerHTML=showTime;
+        }
+
+    </script>
+</body>
+</html>
